@@ -366,6 +366,7 @@ void RealSenseNodeFactory::StartDevice()
 		case RS420_PID:
 		case RS420_MM_PID:
 		case RS430_PID:
+		case RS430i_PID:
 		case RS430_MM_PID:
 		case RS430_MM_RGB_PID:
 		case RS435_RGB_PID:
@@ -382,7 +383,7 @@ void RealSenseNodeFactory::StartDevice()
 			_realSenseNode = std::shared_ptr<T265RealsenseNode>(new T265RealsenseNode(nh, privateNh, _device, _serial_no));
 			break;
 		default:
-			ROS_FATAL_STREAM("Unsupported device!" << " Product ID: 0x" << pid_str);
+			ROS_FATAL_STREAM("WTF? Unsupported device!" << " Product ID: 0x" << pid_str);
 			ros::shutdown();
 			exit(1);
 		}
